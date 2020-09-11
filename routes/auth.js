@@ -24,7 +24,7 @@ router.post('/register', async(req, res) => {
     const already = await db('users').where({email}).first()
 
     if (already){
-        res.status(400).send('User already exists.')
+        return res.status(400).send('User already exists.')
     }
 
     const insert = await db('users')
