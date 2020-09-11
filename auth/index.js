@@ -38,6 +38,7 @@ passport.use(new LocalStrategy({
         }
 
         return done(null, user)
+       //return done(null, {id: user.id, email})
     }
 ))
 

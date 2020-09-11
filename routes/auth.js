@@ -6,6 +6,19 @@ const db = require('../db')
 
 module.exports = router
 
+const passport = require('../auth')
+
+router.post('/login', passport.authenticate('local'), (req, res) => {
+    console.log("req.user: ", req.user)
+    res.send('OK')
+})
+
+router.post('/me', (req, res) => {
+    console.log("req.user", req.user)
+    const {user} = req
+    res.send(user)
+})
+
 router.post('/register', async(req, res) => {
     const {email, password} = req.body
 
