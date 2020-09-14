@@ -10,7 +10,7 @@ passport.serializeUser((user, done) => {
     done(null, user.id)
 })
 
-// Deserialize - once you have a tokes, how do you fetch it 
+// Deserialize - once you have a token, fetch the data when you need it 
 passport.deserializeUser(async (id, done) => {
     try {
         const user = await db('users').where({id}).first()
@@ -21,6 +21,7 @@ passport.deserializeUser(async (id, done) => {
     }
 })
 
+// for loging in
 passport.use(new LocalStrategy({
         usernameField: 'email',
         passwordField: 'password'
