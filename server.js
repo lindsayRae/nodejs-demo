@@ -39,6 +39,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/json', (req, res) => {
+  res.send({message: "OK"})
+})
+
 app.get('/second', isUserLoggedIn, (req, res) => {
   res.send('<h1>Some heading here</h1>')
 })
